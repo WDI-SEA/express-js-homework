@@ -1,0 +1,12 @@
+<h1>Weather Page</h1>
+
+<% if(results) { %>
+<h3> Have results for <%=results[0]["location"]["name"]%></h3>
+<% let forecast = results[0]["current"]; %>
+<% if(forecast) { %>
+	<h5> Current temp: <%=forecast["temperature"] %></h5>
+	<h5> Current conditions: <%=forecast["skytext"] %></h5>
+<%} %>
+<%} else {%>
+	<h3> No results </h3>
+<%}%>
