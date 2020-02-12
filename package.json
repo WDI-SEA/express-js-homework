@@ -1,0 +1,24 @@
+{
+  "name": "express-js-homework",
+  "version": "1.0.0",
+  "description": "HomeWork for GA",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/papadavis47/express-js-homework.git"
+  },
+  "author": "John Davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/papadavis47/express-js-homework/issues"
+  },
+  "homepage": "https://github.com/papadavis47/express-js-homework#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "weather-js": "^2.0.0"
+  }
+}
