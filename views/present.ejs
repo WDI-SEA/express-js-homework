@@ -1,1 +1,22 @@
-<h1>weather route</h1>
+<% if (typeof data != 'undefined') { %>
+<h1>Today's weather for <%= data.location.name %></h1>
+<div class="weather-data">
+    <span id="sky"><%= data.current.skytext %>
+        <% if (data.current.skycode < 20) { %> ☔️ <% }
+        else { if (data.current.skycode > 25) %> 🌥 <% } %></span>
+    <span id="temperature"><%= data.current.temperature %> 
+        <span id="unit">&#176; <%= data.location.degreetype %></span></span>
+</div>
+<% } else { %>
+<h1>I'm sorry, which city were you looking for again?</h1>
+<form action="/" method="post" name="info">
+    <input name="zip" type="number" placeholder="zip code">
+    <input name="place" type="text" placeholder="City, State">
+    <p>Please select your desired temperature unit:</p>
+    <input type="radio" id="unit1" name="unit" value="C">
+    <label for="unit1">C</label>
+    <input type="radio" id="unit2" name="unit" value="F">
+    <label for="unit2">F</label>
+    <input name="info" type="submit" value="Fetch Data">
+</form>
+    <% } %>

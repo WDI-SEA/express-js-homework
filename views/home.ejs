@@ -1,11 +1,11 @@
 <h1>home route</h1>
-<form action="/" method="post">
-    <input type="number" placeholder="zip code">
-    <input type="text" placeholder="City, State">
-    <input type="submit" value="Fetch Data">
+<form action="/" method="post" name="info">
+    <input name="zip" type="number" placeholder="zip code">
+    <input name="place" type="text" placeholder="City, State">
+    <p>Please select your desired temperature unit:</p>
+    <input type="radio" id="unit1" name="unit" value="C">
+    <label for="unit1">C</label>
+    <input type="radio" id="unit2" name="unit" value="F">
+    <label for="unit2">F</label>
+    <input name="info" type="submit" value="Fetch Data">
 </form>
-<ul>
-<% data.forEach(item => { %>
-    <li><%= item %></li>
-<% }); %>
-</ul>
