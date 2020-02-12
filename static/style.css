@@ -1,0 +1,33 @@
+* {
+    text-align: center;
+}
+
+h3 {
+    padding-right: 400px;
+    padding-top: 50px;
+}
+
+h1 {
+    color: chartreuse;
+    margin-bottom: 40px;
+}
+
+h4 {
+    color: blue;
+    text-align: left;
+}
+
+form {
+    margin-top: 200px;
+}
+
+.clearDiv {
+    display: block;
+    margin: 15px;
+}
+
+.resultsDiv {
+    margin: 0 auto;
+    height: 300px;
+    width: 200px;
+}
