@@ -1,0 +1,10 @@
+body {
+    background-image: url(https://cdn2.vectorstock.com/i/1000x1000/64/01/good-weather-background-blue-sky-with-clouds-vector-1156401.jpg);
+}
+
+li {
+    text-decoration: none;
+    display: block;
+    font-size: large;
+    margin-left: 1em;
+}
