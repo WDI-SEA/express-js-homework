@@ -1,27 +1,51 @@
 //import my dependencies
 const express = require('express');
 const layouts = require ('express-ejs-layouts');
-const weather = require('weather-js');
+var weather = require('weather-js');
 
 //set server stuff
 const app = express();
+app.set('view engine', 'ejs');
+app.use(layouts);
+app.use(express.static('static'));
+
 
 //routes
 
-//home
+//HOME
 app.get('/', (req, res) => {
-    res.send('HOME');
+    // res.send('HOME');
+   res.render('home');
 });
 
-//weather
-app.get('/weather', function(req, res) {
-    res.send('WEATHER');
+//WEATHER
+// app.get('/weather', function(req, res) {
+//     // res.send(req.query.zipcode);
+//     // res.send('WEATHER');
+//     res.send(req.query.input);
+// });
+
+// app.use('/weather', require('./routes/weather'));
+// let zip = res.body.zip
+
+
+app.get('/weather', (req, res) => {
+    let zip = req.query.input;
+    weather.find({search: `${zip}`, degreeType: 'F'}, function(err, result) {
+        if(err) console.log(err);
+    // console.log(JSON.stringify(result, null, 2));
+        res.render('weather', {zip, result: result[0]});
+  });
 });
 
-//zip
-app.get('/weather/:zip', function(req, res) {
-    let zip = req.params.zip;
-    res.send(`Here is the weather for ${zip}`);
+//ZIP(RESULTS)
+app.get('/weather/:zipcode', (req, res) => {
+    let zip = req.params.zipcode;
+    weather.find({search: `${zip}`, degreeType: 'F'}, function(err, result) {
+        if(err) console.log(err);
+    // console.log(JSON.stringify(result, null, 2));
+        res.render('weather', {zip, result: result[0]});
+  });
 });
 
 //listen

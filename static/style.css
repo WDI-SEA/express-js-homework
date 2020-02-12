@@ -1,0 +1,23 @@
+html {
+  background: url(https://live.staticflickr.com/4317/35944688792_641b41063f_k.jpg) no-repeat center center fixed;
+}
+
+body {
+  text-align: center;  
+  margin-top: 75px;
+}
+
+
+h1 {
+  font-size: 75px;
+}
+
+p {
+  font-size: x-large;
+  margin-bottom: 50px;
+}
+.results li {
+  list-style-type: none;
+  margin: 10px;
+  font-size: large;
+}
