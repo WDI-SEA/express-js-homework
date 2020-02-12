@@ -1,6 +1,34 @@
-<h2>Here is your weather!</h2>
-<% if (weather.length !== 0) { %>
-<code>
-    <%= weather %>
-</code>
-<% }; %>
+<h2>Here is the weather in
+     <%= location.name %>
+</h2>
+
+<div class="current">
+    <h2>Weather Today:
+        <%= current.day %>, <%= current.date %>
+    </h2>
+    <h6>Today will be 
+        <%= current.skytext %>.
+    </h6>
+    <h6>The current temperature is 
+        <%= current.temperature %> °F and feels like <%= current.feelslike %> °F.
+    </h6>
+</div>
+<h2>Forecast for the Week</h2>
+<div class="forecast">
+    <% for(let weather of forecast)  { %>
+        <div class="day">
+            <h6>
+                On <%= weather.day %>, <%= weather.date %>:
+            </h6>
+            <h6>
+                It will be <%= weather.skytextday %>
+            </h6>
+            <h6>
+                A high of <%= weather.high %> °F and a low of <%= weather.low %> °F.
+            </h6>
+            <h6>
+                And there will be a <%= weather.precip %>% chance of precipitation.
+            </h6>
+        </div>
+    <% } %>
+</div>
