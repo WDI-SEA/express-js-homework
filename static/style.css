@@ -5,6 +5,20 @@ body {
 li {
     text-decoration: none;
     display: block;
-    font-size: large;
-    margin-left: 1em;
+    font-size: 20px;
+    /* margin-left: 1em; */
+}
+
+div {
+    position: fixed;
+    /* or absolute */
+    top: 10%;
+    left: 35%;
+}
+
+form {
+    position: fixed;
+    /* or absolute */
+    top: 30%;
+    left: 40%;
 }
