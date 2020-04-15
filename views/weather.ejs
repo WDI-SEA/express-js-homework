@@ -1,0 +1,9 @@
+<p>Here's the weather for <%= zip %> </p>
+
+<ul class = "results">
+    <li>Location: <%= result.location.name %></li>
+    <li>Current Temperature: <%= result.current.temperature %> °F</li>
+    <li>The Sky Is...<%= result.current.skytext %></li>
+    <li>It Feels Like: <%= result.current.feelslike %> °F</li>
+    <li>Today's Date: <%= result.current.date %></li>
+</ul>
