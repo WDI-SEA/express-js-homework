@@ -1,6 +1,6 @@
 //make express node package availible for use
 let express = require('express')
-//make wheather-js package availible
+//make weatherr-js package availible
 let weather = require('weather-js')
 //make ejs layouts availible
 let ejsLayouts = require('express-ejs-layouts')
@@ -29,13 +29,13 @@ let makeZipCode = (function () {
 })()
 
 //data variables
-let wheatherData
+let weatherrData
 let locationData
 let currentData
-let forecast
-//find wheather data from wheather-js
+let forecastData
+//find weatherr data from weatherr-js
 function findWheather(){
-  //find wheather data from wheather-js
+  //find weatherr data from weatherr-js
   weather.find({search: makeZipCode, degreeType: 'F'}, function(err, result) {
   if(err) { console.log(err) } 
     if(result.length === 0) {
@@ -44,7 +44,7 @@ function findWheather(){
       return
     } else {
       //all the data
-      wheatherData = result
+      weatherrData = result
       //console.log(wheatherData)
       //data at location
       locationData = result[0]['location']
@@ -53,10 +53,10 @@ function findWheather(){
       currentData = result[0]['current']
       //data at forecast
       forecastData = result[0]['forecast']
-      console.log(forecastData)
+      //console.log(forecastData)
       //respond with ejs html and data
       app.get('/', (req, res) => {
-        res.render('index.ejs', { message: "Hi I'm the server, and this is random wheather location I found for you. Enjoy!", 
+        res.render('index.ejs', { message: "Hi I'm the server, and this is random weatherr location I found for you. Enjoy!", 
                                   locationData: locationData, 
                                   currentData: currentData, 
                                   forecastData: forecastData } )
@@ -66,7 +66,7 @@ function findWheather(){
 }
 findWheather();
 
-//retry finding wheather with new zip code
+//retry finding weatherr with new zip code
 function badZipcodeCallback() {
   //make new zipcode
   makeZipCode = (function () {
@@ -77,21 +77,27 @@ function badZipcodeCallback() {
     console.log(`new zipcode: ${zipCode}`)
     return zipCode;
   })()
-  //try to find wheather again
+  //try to find weatherr again
   findWheather();
 }
 
-// //get index.ejs so we can view at /
+//get index.ejs so we can view at /
 // app.get('/', (req, res) => {
-//   res.render('index.ejs', { message: "Hi I'm the server, and this is random wheather location I found for you", 
-//                             displayData: 'null' } )
+//   res.render('index.ejs', { message: "Hi I'm the server, and this is random weatherr location I found for you", 
+//                            displayData: 'null' } )
 // })
 
 
+//http://localhost:8000/wheather?zipCode=5467
 
-app.get('/wheather/:zipcode', function(req, res) {
-  let test = req.body;
-  res.send(req.params.zipcode.toString());
+//get zipcode from /wheather
+app.get('/weather', function(req, res) {
+  let zipCode = req.query.zipCode;
+  //let zipCode = 'hello'
+  console.log(req.query)
+  res.render('results', { zipCode: zipCode })
 })
 
-
+// app.get('/:input', function(req, res){
+//   res.send(`our parameter is ${req.params.input}.`)
+//   })
