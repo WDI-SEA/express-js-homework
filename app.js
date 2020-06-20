@@ -6,6 +6,7 @@ let ejsLayouts = require('express-ejs-layouts');
 
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
+app.use(express.static(__dirname + '/public'));
 
 app.get("/", (req,res) => {
     res.render("index.ejs");
@@ -16,7 +17,7 @@ app.get("/weather", (req, res) => {
         if(err) {
             res.render("weather.ejs", {message : `ERROR: ${err}`});
         } else {
-            // console.log(result[0])
+            console.log("RESULT HERE",result)
             if(result[0]){
                 let output = `Weather for ${result[0].location.name}: ${result[0].current.skytext}, ${result[0].current.temperature}°F`;
 
