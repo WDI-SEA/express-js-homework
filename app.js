@@ -2,21 +2,30 @@ const express = require('express');
 const weather = require('weather-js');
 const weatherApp = express();
 weatherApp.set('viewengine', 'ejs');
+weatherApp.use(express.static(__dirname + '/static'));
 
 
 function retrieveWeather (zipCode, res){
     weather.find({search: zipCode, degreeType: 'F'}, function(err, result){
         if (err) {
             console.log(err);
-            res.render('weather.ejs', {message: `Error: ${err}`});
+            res.render('weather.ejs', {message: `Error: ${err}`, viewBackground: viewBackground});
         } else {
             console.log("result", result);
             if (result[0]){
                 console.log("forecast", result[0].forecast);
                 let responseMessage = `Weather for ${result[0].location.name} ${zipCode}: ${result[0].current.skytext}, ${result[0].current.temperature}°F`;
-                res.render('weather.ejs', {message: responseMessage});
+                let viewBackground = "";
+                if ((result[0].current.skycode > 26) && (result[0].current.skycode%2 === 1)) {
+                    viewBackground = "night";
+                } else if ((result[0].current.skycode > 26) && (result[0].current.skycode%2 === 0)){
+                    viewBackground = "sunny";
+                } else {
+                     viewBackground = "rainy";
+                }
+                res.render('weather.ejs', {message: responseMessage, resultObject: result[0], viewBackground: viewBackground});
             } else {
-                res.render('weather.ejs', {message: `Could not retrieve weather for zip code ${zipCode}.`});
+                res.render('weather.ejs', {message: `Could not retrieve weather for zip code ${zipCode}.`, viewBackground: viewBackground});
             }
         }
     })
