@@ -8,4 +8,8 @@ app.get('/', (req, res) => {
     res.render('index.ejs')
 })
 
+app.get('/weather', (req,res) => {
+    res.send('The weather is a thing that does things')
+})
+
 app.listen(8000, () => {console.log("Dancing with myself on port 8000")});
