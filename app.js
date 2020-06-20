@@ -6,26 +6,29 @@ weatherApp.use(express.static(__dirname + '/static'));
 
 
 function retrieveWeather (zipCode, res){
+// common function for retrieving weather for a zip code whether that code was user- or randomly- generated
+// responds gracefully to raw errors and also to invalid zip codes, which just return empty result arrays instead of 'err' errors
     weather.find({search: zipCode, degreeType: 'F'}, function(err, result){
+        let templateInfo = {message: "", background: "", imageUrl: ""};
         if (err) {
             console.log(err);
-            res.render('weather.ejs', {message: `Error: ${err}`, viewBackground: viewBackground});
+            templateInfo.message = `Error: ${err}`;
+            res.render('noweather.ejs', templateInfo);
         } else {
-            console.log("result", result);
             if (result[0]){
-                console.log("forecast", result[0].forecast);
-                let responseMessage = `Weather for ${result[0].location.name} ${zipCode}: ${result[0].current.skytext}, ${result[0].current.temperature}°F`;
-                let viewBackground = "";
+                templateInfo.message = `Weather for ${result[0].location.name} ${zipCode}: ${result[0].current.skytext}, ${result[0].current.temperature}°F`;
+                templateInfo.imageUrl = result[0].current.imageUrl;
                 if ((result[0].current.skycode > 26) && (result[0].current.skycode%2 === 1)) {
-                    viewBackground = "night";
+                    templateInfo.background = "night";
                 } else if ((result[0].current.skycode > 26) && (result[0].current.skycode%2 === 0)){
-                    viewBackground = "sunny";
+                    templateInfo.background = "sunny";
                 } else {
-                     viewBackground = "rainy";
+                     templateInfo.background = "rainy";
                 }
-                res.render('weather.ejs', {message: responseMessage, resultObject: result[0], viewBackground: viewBackground});
+                res.render('weather.ejs', templateInfo);
             } else {
-                res.render('weather.ejs', {message: `Could not retrieve weather for zip code ${zipCode}.`, viewBackground: viewBackground});
+                templateInfo.message = `Could not retrieve weather for zip code ${zipCode}.`;
+                res.render('noweather.ejs', templateInfo);
             }
         }
     })
@@ -33,13 +36,22 @@ function retrieveWeather (zipCode, res){
 
 
 weatherApp.get('/', (req, res) => {
-    res.render('index.ejs', {randomZip: Math.floor(Math.random()*100000)});
+    // load index.html with pre-generated random zip code associated with Get Random Weather button
+    // random zip must be generated one digit at a time
+    // trying to generate random zip all at once with Math.random()*100000 results in a zip code that is missing any initial 0s
+    let randomZipCode = "";
+    for (let i=0; i<5; i++){
+        let nextDigit = Math.floor(Math.random()*10);
+        randomZipCode += nextDigit;
+    }
+    res.render('index.ejs', {randomZip: randomZipCode});
 })
 weatherApp.get('/weather', (req,res) => {
-    //let thisZip = req.params.zipcode;
+    // retrieve weather for user-entered zip code using req.query
     retrieveWeather(req.query.zip_code, res);
 })
 weatherApp.get('/weather/:randomZip', (req,res) => {
+    // retrieve weather for random zip code using req.params
     retrieveWeather(req.params.randomZip, res);
 })
 
