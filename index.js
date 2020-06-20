@@ -18,86 +18,104 @@ app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })
 
-//raondom zipcode
-let makeZipCode = (function () {
-  let zipCode = '';
-  for(let i = 0; i < 5; i++){
-      zipCode += Math.floor(Math.random() * 10).toString();
-  }
-  console.log(`zipcode: ${zipCode}`)
-  return zipCode;
-})()
-
-//data variables
-let weatherrData
-let locationData
-let currentData
-let forecastData
-//find weatherr data from weatherr-js
-function findWheather(){
-  //find weatherr data from weatherr-js
-  weather.find({search: makeZipCode, degreeType: 'F'}, function(err, result) {
-  if(err) { console.log(err) } 
-    if(result.length === 0) {
-      console.log('returning early, bad zipcode')
-      badZipcodeCallback();
-      return
-    } else {
-      //all the data
-      weatherrData = result
-      //console.log(wheatherData)
-      //data at location
-      locationData = result[0]['location']
-      //console.log(locationData)
-      //data at current
-      currentData = result[0]['current']
-      //data at forecast
-      forecastData = result[0]['forecast']
-      //console.log(forecastData)
-      //respond with ejs html and data
-      app.get('/', (req, res) => {
-        res.render('index.ejs', { message: "Hi I'm the server, and this is random weatherr location I found for you. Enjoy!", 
-                                  locationData: locationData, 
-                                  currentData: currentData, 
-                                  forecastData: forecastData } )
-      })
-    }
-  })
-}
-findWheather();
-
-//retry finding weatherr with new zip code
-function badZipcodeCallback() {
-  //make new zipcode
-  makeZipCode = (function () {
-    let zipCode = '';
-    for(let i = 0; i < 5; i++){
-        zipCode += Math.floor(Math.random() * 10).toString()
-    }
-    console.log(`new zipcode: ${zipCode}`)
-    return zipCode;
-  })()
-  //try to find weatherr again
-  findWheather();
-}
-
 //get index.ejs so we can view at /
-// app.get('/', (req, res) => {
-//   res.render('index.ejs', { message: "Hi I'm the server, and this is random weatherr location I found for you", 
-//                            displayData: 'null' } )
-// })
-
+app.get('/', (req, res) => {
+  res.render('index.ejs', { message: "Hi I'm the server, tell me your zip code and I'll show you forecast and weather information."} )
+})
 
 //http://localhost:8000/wheather?zipCode=5467
 
 //get zipcode from /wheather
 app.get('/weather', function(req, res) {
   let zipCode = req.query.zipCode;
-  //let zipCode = 'hello'
-  console.log(req.query)
-  res.render('results', { zipCode: zipCode })
+  let weatherData
+  let locationData
+  let currentData
+  let forecastData
+  console.log(`user input zipcode: ${zipCode}`)
+  weather.find({search: zipCode, degreeType: 'F'}, function(err, result) {
+    if(err) console.log(err);
+    //console.log(JSON.stringify(result, null, 2));
+    weatherData = result
+    //data at location
+    locationData = result[0]['location']
+    //console.log(locationData)
+    //data at current
+    currentData = result[0]['current']
+    //data at forecast
+    forecastData = result[0]['forecast']
+    res.render('results', { zipCode: zipCode, 
+                            locationData: locationData,
+                            currentData: currentData, 
+                            forecastData: forecastData 
+    })
+  })
 })
+
+// //raondom zipcode
+// let makeZipCode = (function () {
+//   let zipCode = '';
+//   for(let i = 0; i < 5; i++){
+//       zipCode += Math.floor(Math.random() * 10).toString();
+//   }
+//   console.log(`zipcode: ${zipCode}`)
+//   return zipCode;
+// })()
 
 // app.get('/:input', function(req, res){
 //   res.send(`our parameter is ${req.params.input}.`)
 //   })
+
+//data variables
+// let weatherData
+// let locationData
+// let currentData
+// let forecastData
+//find weatherr data from weatherr-js
+// function findWheather(zip){
+//   //find weatherr data from weatherr-js
+//   weather.find({search: zip, degreeType: 'F'}, function(err, result) {
+//   if(err) { console.log(err) } 
+//     if(result.length === 0) {
+//       console.log('returning early, bad zipcode')
+//       badZipcodeCallback();
+//       return
+//     } else {
+//       //all the data
+//       weatherData = result
+//       console.log(weatherData)
+//       //data at location
+//       locationData = result[0]['location']
+//       console.log(locationData)
+//       //data at current
+//       currentData = result[0]['current']
+//       //data at forecast
+//       forecastData = result[0]['forecast']
+//       console.log(forecastData)
+//       //respond with ejs html and data
+//       app.get('/weather', (req, res) => {
+//         res.render('results.ejs', { messageRand: "Hi I'm the server, and this is random weather location info I found for you. Enjoy!", 
+//                                     messageUser: "Hi I'm the server, and this is the weather location info you requestes. Enjoy!", 
+//                                     locationData: locationData, 
+//                                     currentData: currentData, 
+//                                     forecastData: forecastData } )
+//       })
+//     }
+//   })
+// }
+// //findWheather(makeZipCode);
+
+// //retry finding weatherr with new zip code
+// function badZipcodeCallback() {
+//   //make new zipcode
+//   makeZipCode = (function () {
+//     let zipCode = '';
+//     for(let i = 0; i < 5; i++){
+//         zipCode += Math.floor(Math.random() * 10).toString()
+//     }
+//     console.log(`new zipcode: ${zipCode}`)
+//     return zipCode;
+//   })()
+//   //try to find weather again
+//   findWheather(makeZipCode);
+// }
