@@ -1,0 +1,28 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+a {
+    color: #000000;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'MuseoModerno', cursive;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    font-family: 'Roboto', sans-serif;
+}
