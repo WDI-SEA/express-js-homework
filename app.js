@@ -6,14 +6,21 @@ weatherApp.set('viewengine', 'ejs');
 weatherApp.get('/', (req, res) => {
     res.render('index.ejs');
 })
-weatherApp.get('/weather/:zipcode', (req, res) => {
-    let thisZip = req.params.zipcode;
-    weather.find({search: thisZip, degreeType: 'F'}, function(err, result){
+//weatherApp.get('/weather/:zipcode', (req, res) => {
+weatherApp.get('/weather', (req,res) => {
+    //let thisZip = req.params.zipcode;
+    weather.find({search: req.query.zip_code, degreeType: 'F'}, function(err, result){
         if (err) {
             console.log(err);
+            res.render('weather.ejs', {message: `Error: ${err}`});
         } else {
             console.log("result", result);
-            res.render('weather.ejs', {result: result});
+            if (result[0]){
+                let responseMessage = `Weather for ${result[0].location.name}: ${result[0].current.skytext}, ${result[0].current.temperature}°F`;
+                res.render('weather.ejs', {result: result[0], message: responseMessage});
+            } else {
+                res.render('weather.ejs', {message: 'Could not retrieve weather for that zip code'});
+            }
         }
     })
 })
