@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2><%= result.current.date %> <br /> <%= result.current.observationtime %></h2>
+    <h2>Weather for <%= result.location.name %></h3>
+    <ul>
+      
+      <li><h3>CURRENT WEATHER: </h3>
+        <%= result.current.temperature %> °F %> <br />
+        <%= result.current.skytext %> <br />
+        <%= result.current.humidity %>% humidity <br />
+      </li>
+    </ul>
+</body>
+</html>
