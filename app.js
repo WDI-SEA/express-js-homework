@@ -11,8 +11,22 @@ app.get("/", (req, res) => {
     res.render("main");
 })
 
+// function makeZip(length) {
+//   let result           = '';
+//   let characters       = '1234567890';
+//   let charactersLength = characters.length;
+//   for ( let i = 0; i < length; i++ ) {
+//      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+//   }
+//   return result;
+// }
+
+// const randoZip = () => { 
+//   makeZip(5);
+// }
+
+
 app.get("/results", (req, res) => {
-  //i need to google string interpolation
   weather.find({search: `${req.query.zip}`, degreeType: 'F'}, function(err, result) {
     if(err) console.log(err);
    
@@ -21,16 +35,5 @@ app.get("/results", (req, res) => {
   })
 })
 
-//five day forecast is an iteration
-//iterate a for each with squids
-//look up how to do this with ejs
 
-// app.get("/about", (req, res) => {
-//     res.render("about.ejs", {faves: ["dogs", "tacos", "dranks"]});
-// })
-
-// app.get("/blog", (req, res) => {
-//     res.render("blog.ejs");
-// })
-
-app.listen(3000, () => {console.log("Singing and dancing on port 3000")})
+app.listen(3000, () => {console.log("Ily from port 3000 ❣️")})
