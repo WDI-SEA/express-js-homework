@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-    <h2><%= result.current.date %> <br /> <%= result.current.observationtime %></h2>
+<body style="text-align: center;">
+    <h2><%= result.current.date %> <br /></h2>
     <h2>Weather for <%= result.location.name %></h3>
-    <ul>
+    <ul style="border: 2px solid blue">
       
       <li><h3>CURRENT WEATHER: </h3>
-        <%= result.current.temperature %> °F %> <br />
-        <%= result.current.skytext %> <br />
-        <%= result.current.humidity %>% humidity <br />
+        <%= result.current.temperature %> °F %> <br /> <br />
+        <%= result.current.skytext %> <br /> <br />
+        <%= result.current.humidity %>% humidity <br /> <br />
       </li>
     </ul>
 </body>
