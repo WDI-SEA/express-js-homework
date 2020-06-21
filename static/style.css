@@ -1,0 +1,52 @@
+body {
+    background-image: url("weather app photo.jpeg");
+    background-repeat: no-repeat;
+}
+
+.input-field {
+    height: 5em;
+    border-radius: 20px;
+}
+
+.myButton {
+    border-radius: 20px;
+}
+
+.blue-text{
+    margin: 100px auto 0 auto;
+    text-align: center;
+}
+
+.weather-card {
+    width: 20em;
+    height: 20em;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 20px;
+}
+
+.first-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 15px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.second-row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 15px;
+    margin-top: 45px;
+}
+
+.forecast-container {
+    display: grid;
+    margin-top: 35px;
+    margin-left: 25px;
+    grid-template-columns: repeat(4, 1fr);
+}

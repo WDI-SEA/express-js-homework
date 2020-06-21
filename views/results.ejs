@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</html>
+<form action="/results" method="get">
+    <div class="input-field">
+        <input name="zip" placeholder="Enter your city or zip to see the weather!" class="search-weather" type="search">
+            <button class="myBtn btn waves-effect waves-light" type="submit">Submit
+                <i class="material-icons right"></i>
+            </button>
+    </div>
+</form>
+
+    <!--container for the forecast information-->
+            <div class="forecast-container">
+                <div class="weather-card col s4 offset-s4 z-depth-5 blue lighten-5">
+                    <!--container for the stuff inside the card-->
+                        <div class="first-row">
+                            <div class="location"><%= values.location.name %></div>
+                            <div class="skytext"><%= values.forecast.skytextday %></div>
+                            <div class="temp"><%= values.current.temperature %><%= values.location.degreetype %>
+                                <img src="<%= values.current.imageUrl %>"></div>
+                         </div>
+                        <div class="second-row">
+                            <div class="winddisplay"><%= values.current.winddisplay %></div>
+                            <div class="humidity"><%= values.current.humidity %></div>
+                        </div>
+                
+                    <!--container for the forecast information-->
+                            <div class="forecast-container">   
+                        </div>
+</body>
