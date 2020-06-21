@@ -32,6 +32,24 @@
                         </div>
                 
                     <!--container for the forecast information-->
-                            <div class="forecast-container">   
-                        </div>
+                            <div class="forecast-container">
+                                <div><p><%= values.forecast[0].shortday %></p>
+                                    <p class="fc"><%= values.forecast[0].skytextday %></p>
+                                        </div>
+                                <div><p><%= values.forecast[1].shortday %></p>
+                                    <p class="fc"><%= values.forecast[1].skytextday %></p>
+                                       </div>
+                                <div><p><%= values.forecast[2].shortday %></p>
+                                    <p class="fc"><%= values.forecast[2].skytextday %></p>
+                                        </div>
+                                <div><p><%= values.forecast[3].shortday %></p>
+                                    <p class="fc"><%= values.forecast[3].skytextday %></p>
+                                        </div>
+                            </div>
+
+                            <div class="fc-highs"><p><%= values.forecast[0].high %></p>
+                                <p><%= values.forecast[1].high %></p>
+                                <p><%= values.forecast[2].high %></p>
+                                <p><%= values.forecast[3].high %></p>
+                            </div>
 </body>

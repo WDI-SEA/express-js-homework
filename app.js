@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/results", (req, res) => {
-  //karly needs to google string interpolation
+  //i need to google string interpolation
   weather.find({search: `${req.query.zip}`, degreeType: 'F'}, function(err, result) {
     if(err) console.log(err);
    

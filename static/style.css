@@ -31,22 +31,32 @@ body {
 
 .first-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin-left: 15px;
-    margin-top: 50px;
-    margin-bottom: 25px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
 }
 
 .second-row{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-left: 15px;
-    margin-top: 45px;
+    margin-top: 0;
 }
 
 .forecast-container {
     display: grid;
-    margin-top: 35px;
-    margin-left: 25px;
+    margin-top: 0;
+    margin-left: 15px;
+    margin-bottom: -20px;
     grid-template-columns: repeat(4, 1fr);
+}
+
+.fc-highs {
+    font-size: 13px;
+    font-style: italic;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 auto auto 15px;
 }
