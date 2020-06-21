@@ -1,0 +1,14 @@
+<style type="text/css">
+
+body {
+  text-align: center;
+  color: white;
+  background: url("http://www.placekitten.com/500/500")
+}
+
+div {
+  background-color: teal;
+  position: relative;
+  margin: 0 auto;
+  max-width: 600px;
+}
