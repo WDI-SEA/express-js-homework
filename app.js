@@ -1,12 +1,17 @@
-let express = require('express');
-let weather = require('weather-js');
-// let ejsLayouts = require('express-ejs-layouts');
+var express = require('express');
+var weather = require('weather-js');
 let app = express();
+// var expressLayouts = require('express-ejs-layouts');
+
 
 //For linking CSS to our viewing engine
 app.use(express.static(__dirname + "/static"));
 
 app.set('view engine', 'ejs');
+
+// app.use(expressLayouts);
+//this applies the header to every page through the layouts.ejs file
+
 
 app.get('/', (req, res) => {
     res.render('home')
