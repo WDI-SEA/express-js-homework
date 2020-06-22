@@ -1,3 +1,7 @@
 <h1>Forecast for <%= zipcode %></h1>
 
-<h2> <%= JSON.stringify(result) %> </h2>
+<h2> <%= result.location.name %> </h2>
+<h3>Current temperature: <%= result.current.temperature %> </h3>
+<h3> <%= result.current.skytext %> </h3>
+<h3>Current humidity: <%= result.current.humidity %> </h3>
+<h3>Feels like: <%= result.current.feelslike %> </h3>
