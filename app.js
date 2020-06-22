@@ -9,11 +9,22 @@ app.use(express.static(__dirname + "/static"));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('home.ejs')
+    res.render('home')
 })
 
-app.get("/weather/:zipcode", (req, res) => {
-    res.send(`Results for ${req.params.zipcode}`)
+app.get("/results", (req, res) => {
+    //  the get method on the form already creates a query so we don't need to put that on the end of the /result
+    // the name of the form text box would go on the end of the query because it tells it that 
+    weather.find({search: req.query.zipcode, degreeType: 'F'}, function(err, result) {
+        if(err){
+            console.log('You pooped the bed :/')
+            console.log(err);
+        }
+        // console.log(JSON.stringify(result, null, 2));
+         // res.send(`Results for ${req.params.zipcode}`);
+        res.render('results', {weather: result[0]})
+      });
+
 })
 
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Results</title>
+</head>
+<body>
+    <main>
+        <h1>Here is the weather in your city!</h1>
+        <h3> Weather for <%= weather.location.name %>, <%= weather.location.zipcode %> <img src="<%= weather.current.imageUrl %>" ></h4>
+        <!--
+        Current Temp
+            day
+            Temperature
+            skytext
+            feels like
+            humidity
+            winddisplay
+            imageURL
+        -->
+        <h3> Today is <%= weather.current.date %> and the temperature is currently <%= weather.current.temperature %>°F with <%= weather.current.skytext %>. <h3>
+        <h3> It feels like <%= weather.current.feelslike %> with a humidity of <%= weather.current.humidity %> and <%= weather.current.winddisplay %> winds!</h3>
+            <!--
+        Forecast [array of objets]
+            high 
+            low
+            skytextday
+            day -->
+        <h2> Here is your weather for the week!</h2>
+        <br />
+        <% weather.forecast.forEach(day => {   %>
+            <li>
+                <h4> For <%= day.day %>, <%= day.date %>:</h4>
+                <h5> <%= day.skytextday %> with a high of <%= day.high %> and a low of <%= day.low %></h5>
+            </li>
+        <% }) %>
+        
+    </main>
+</body>
+</html>
