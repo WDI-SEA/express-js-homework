@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 app.use(express.static(__dirname + '/public'));
 
 app.get('/weather', (req,res) => {
-    //res.render('weather.ejs', {req: req.query, res: res.query});
+    //res.render('weather.ejs', {req: req.query, res: res});
     for (let key in req.query) {
         weather.find({search: req.query[key], degreeType: 'F'}, function(err, result) {
 
