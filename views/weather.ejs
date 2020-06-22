@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Cast App</title>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    wahaaaaaat
+<body class="weather-body">
+    <div>
+        <h1 class="location">
+            <%= locationName %>
+        </h1>
+    </div>
+    <div class="date-info">
+        <%= date %>
+        <%= day %>
+    </div>
+    <div>
+        <img class="weather-img" src="<%= currentImg %>">
+    </div>
+    <div>
+        <%= skyText %>
+    </div>
+    <div class="temp-report">
+        Temperature: <%= temperature %>°
+        Humidity: <%= humidity %>%
+    </div>
+    <div class="condition">
+        <% var condition %>
+        <% if (temp > 60) { %>
+            <% condition = 'nice' %>
+        <% } else { %> 
+            <% condition = 'bad' %>
+        <% } %>
+        The weather is <%= condition %> outside.
+    </div>
+    
+
 </body>
 </html>

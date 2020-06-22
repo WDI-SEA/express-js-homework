@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Cast App</title>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <form action="/weather" method="get">
-        <label for="user-zip">Please insert ZIP code:</label>
-        <input id="user-zip" type="text" name="weather" placeholder="ZIP code">
-        <input type="submit" value="Check the weather!">
+<body class="index-body">
+    <div>
+        <h1 class="app-header">Weather App</h1>
+    </div>
+    <div>
+        <img class="app-icon" src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png">
+    </div>
+    <form action="/weather" method="get" autocomplete="off">
+        <input id="user-zip" type="text" name="zip" placeholder="ZIP code">
+        <input id="buttn" type="submit" value="Check the weather!">
     </form>
 </body>
 </html>
