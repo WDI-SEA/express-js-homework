@@ -15,7 +15,8 @@
         <input type="submit" value="Get Weather">
     </form>
     <form action="/weather" method="get">
-        <input type="submit" name="zipcode" value=<%= Math.floor(Math.random()*90000) + 10000; %>>
+        <label for="random">Feeling Lucky?</label>
+        <input type="submit" name="zipcode" id="random" value=<%= Math.floor(Math.random() * 90000) + 10000; %>>
     </form>
 </body>
 </html>

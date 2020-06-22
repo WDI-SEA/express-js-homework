@@ -27,7 +27,7 @@ app.get('/weather', (req, res) => {
                 feelsLike: result[0].current.feelslike
             })
         }
-      });
+    });
 })
 
 app.listen(3000, () => console.log('Port 3k!'))
