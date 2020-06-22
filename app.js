@@ -19,7 +19,7 @@ app.get('/weather/', function(req, res) {
           console.log(err);
       }
       // should grab weather data based on the zipcode provided 
-      res.render('temperature', {query: req.query.zipcode, result: [0]})
+      res.render('temperature', {query: req.query.zipcode, result: result[0]})
   })
  
 })
