@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather results</title>
+</head>
+<body>
+    <h3>Here are the results for the zip: <%= query %></h3>
+    <h2>Weather for <%= result.location.name %></h2>
+    <h1>Current temp: <%= result.current.temperature %>°F, and <%= result.current.skytext %></h1>
+    <h2>Humidity: <%= result.current.humidity %></h2>
+</body>
+</html>
