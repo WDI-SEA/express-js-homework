@@ -8,6 +8,10 @@
     <title>Readout</title>
 </head>
 <body>
-
+    <h1>Location Results: <%= query %></h1>
+        <h1>Current Weather for: <%= query %></h1>
+        <main>
+            <h3><%= result.current.temperature %>°F and <%= result.current.skytext %></h3>
+        </main>
 </body>
 </html>
