@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/salman5436/express-js-homework/issues"
   },
-  "homepage": "https://github.com/salman5436/express-js-homework#readme"
+  "homepage": "https://github.com/salman5436/express-js-homework#readme",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "weather-js": "^2.0.0"
+  }
 }
