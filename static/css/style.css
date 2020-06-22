@@ -1,12 +1,12 @@
-<style type="text/css">
+
 
 body {
-  text-align: center;
-  color: white;
-  background: url("http://www.placekitten.com/500/500")
+  background: url("http://www.placekitten.com/200/200");
 }
 
 div {
+  text-align: center;
+  color: white;  
   background-color: teal;
   position: relative;
   margin: 0 auto;
