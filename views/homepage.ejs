@@ -8,9 +8,10 @@
 <body>
   <h1>What's the Weather in ________?</h1>
   <p>Type in a zipcode below to find out the local weather anywhere in the world!</p>
-  <form>
-    <input type="text" value="">
-    <input type="button" value="Check the Weather">
+  <form action="/weather-js/" method="get">
+    <label for="zipcode">Enter Zipcode Here: </label>
+    <input name="zipcode" type="text" value="">
+    <input type="button" id="submit" value="Check the Weather">
   </form>
   
 </body>
