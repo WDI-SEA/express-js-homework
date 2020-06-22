@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>WEATHER</title>
+</head>
+<body>
+  <div class="results-div">
+    <h1>Results for <%= weather %></h1>
+    <h2>Weather for <%= result.location.name %>, Zipcode <%= result.location.zipcode %></h2>
+    <div>
+      <h3>Curently it is <%= result.current.temperature %>°F and <%= result.current.skytext %> </h3>
+      <h4>Humidity <%= result.current.humidity %>% and <%= result.current.winddisplay %> winds.</h4>
+    </div>
+  </div>
+</body>
+</html>

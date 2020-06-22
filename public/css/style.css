@@ -1,0 +1,25 @@
+.results-div {
+    text-align: center;
+}
+
+.home-div {
+    text-align: center;
+}
+body {
+    background: url("https://i.redd.it/fjhlur2tvml31.png");
+    background-attachment: fixed;
+    background-size: cover;
+    color:  white;
+    font-size: 20px;
+}
+.home-p {
+    font-size: 30px;
+}
+
+.home-header {
+    font-size: 50px;
+}
+
+.home-input {
+    background: white;
+}
