@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html id="results" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <title>EJS WEATHER</title>
+</head>
+<body id="center">
+  <main>
+    <h5>Here are your results for <%= query %></h5>
+    <h4>Weather for <%= result.location.name %>, Zipcode <%= result.location.zipcode %></h4>
+    <hr>
+    <!-- Location -->
+      <!-- Name, Zipcode -->
+    <!-- Stuff I want from result -->
+    <section>
+      <!-- Current -->
+        <!-- temperature, skytext, feelslike, humidity,winddisplay, imageUrl -->
+      <h3>It is currently <%= result.current.temperature %>°F and <%= result.current.skytext %> <img src="<%= result.current.imageUrl %>"></h3>
+      <h5>Humidity at <%= result.current.humidity %>% and <%= result.current.winddisplay %> winds.</h5>
+    </section>
+    <section>
+      <!-- Forecast [Array of Objects] -->
+      <h3>Five Day Forecast</h3>
+      <ul style="list-style-type:none;">
+        <% result.forecast.forEach(day => { %>
+          <!-- high, low, skytextday, day -->
+          <li>
+            <h4><%= day.day %></h4>
+            <p><%= day.skytextday %> with a high of <%= day.high %> and a low of <%= day.low %></p>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
+
