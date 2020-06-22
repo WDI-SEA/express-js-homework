@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Results</title>
+</head>
+<body>
+  <h1>Here is your weather forecast for <%= query %>:</h1>
+  <h2>Location: <%= result.location.name %></h2>
+  <img src= "<%= result.current.imageUrl %> " >
+  <h3>Temperature: <%= result.current.temperature %> </h3>
+  <h3>Looks Like: <%= result.current.skytext %></h3>
+  <h3>Feels Like: <%= result.current.feelslike %></h3>
+  <h3>Wind: <%= result.current.windspeed %></h3> 
+</body>
+</html>

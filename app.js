@@ -11,32 +11,19 @@ app.get('/', (req, res) => {
   res.render('homepage.ejs')
 })
 
-app.get('/weatherResults', (req, res) => {
-  res.render('weatherResults.ejs')
-})
-
-let port = 8000
-app.listen(port, () => {console.log(`I figured it out!`)})
-
 let weather = require('weather-js');
 
-// weather.find({search: '', degreeType: 'F'}, function(err, result) {
-//   if(err) console.log(err);
-  
-//   console.log(JSON.stringify(result, null, 2));
-// });
-
-
-app.get('/zipcode/', (req, res) => {
-    console.log(req.query);
+app.get('/weather', (req, res) => {
+    weather.find({search: req.query.zipcode, degreeType: 'F'}, function(err, result) {
+      if(err) console.log(err);
+      
+      console.log(JSON.stringify(result, null, 2))
+      res.render('weather.ejs', {query: req.query.zipcode, result: result[0]})
+      });
+      
   })
 
-// weather.find({search: zipcode, degreeType: 'F'}, function(err, result) {
-//   if(err) {
-//   console.log(err) 
-//   } else {
-
-//   }
-// }})
+  let port = 8000
+  app.listen(port, () => {console.log(`I figured it out!`)})
 
 
