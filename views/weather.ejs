@@ -5,15 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/style.css">
-    <title>Document</title>
+    <title> Simple Weather </title>
 </head>
 
 <body>
-
-    <br>
     <div id="container">
         <ul>
-            <h1>Your Weather</h1>
+            <h1>Your Weather <img src="<%= image %>" /></h1>
             <% weathers.forEach(weather => { %>
             <li><%= weather %></li>
             <% }) %>

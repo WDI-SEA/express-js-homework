@@ -17,9 +17,10 @@ app.get('/weather', (req, res) => {
         degreeType: 'F'
     }, function (err, result) {
         if (err) console.log(err);
-        currentWeather = [result[0].location.name, result[0].current.temperature, result[0].current.winddisplay, result[0].current.day]
+        currentWeather = [result[0].location.name, result[0].current.temperature, result[0].current.winddisplay, result[0].current.day, result[0].current.skytext, result[0].current.imageUrl]
         res.render('weather.ejs', {
-            weathers: [currentWeather[0], `${currentWeather[1]} degrees Fahrenheit`, currentWeather[3], `Winds of ${currentWeather[2]}`]
+            weathers: [ currentWeather[0], `${currentWeather[1]} degrees Fahrenheit.`, `Currently ${currentWeather[4]}.`, currentWeather[3], `Winds of ${currentWeather[2]}.`],
+            image: [currentWeather[5]]
         })
     });
 })
