@@ -4,18 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body style="text-align: center;">
-    <h2><%= result.current.date %> <br /></h2>
+<body>
+
     <h2>Weather for <%= result.location.name %></h3>
-    <ul style="border: 2px solid blue">
-      
-      <li><h3>CURRENT WEATHER: </h3>
-        <%= result.current.temperature %> °F %> <br /> <br />
-        <%= result.current.skytext %> <br /> <br />
-        <%= result.current.humidity %>% humidity <br /> <br />
-      </li>
-    </ul>
+    <h3>CURRENT WEATHER : </h3>  
+      <div>
+          <%= result.current.temperature %> °F <br /> <br />
+          <%= result.current.skytext %> <br /> <br />
+          <%= result.current.humidity %>% humidity <br /> <br />
+      </div>
+      <br /> <br />
+      <h3>5 DAY FORECAST: </h3>  
+      <ul>
+        <li>
+          <%= result.forecast[0].day %> <br /> <br />
+          <%= result.forecast[0].low %> - <%= result.forecast[0].high %> °F <br /> <br />
+          <%= result.forecast[0].skytextday %> <br /> <br />
+        </li>
+        <br /> <br />
+        <li>
+          <%= result.forecast[1].day %> <br /> <br />
+          <%= result.forecast[1].low %> - <%= result.forecast[1].high %> °F <br /> <br />
+          <%= result.forecast[1].skytextday %> <br /> <br />
+        </li>
+        <br /> <br />
+        <li>
+          <%= result.forecast[2].day %> <br /> <br />
+          <%= result.forecast[2].low %> - <%= result.forecast[2].high %> °F <br /> <br />
+          <%= result.forecast[2].skytextday %> <br /> <br />
+        </li>
+        <br /> <br />
+        <li>
+          <%= result.forecast[3].day %> <br /> <br />
+          <%= result.forecast[3].low %> - <%= result.forecast[3].high %> °F <br /> <br />
+          <%= result.forecast[3].skytextday %> <br /> <br />
+        </li>
+        <br /> <br />
+        <li>
+          <%= result.forecast[4].day %> <br /> <br />
+          <%= result.forecast[4].low %> - <%= result.forecast[4].high %> °F <br /> <br />
+          <%= result.forecast[4].skytextday %> <br /> <br />
+        </li>
+      </ul>
 </body>
 </html>

@@ -1,11 +1,32 @@
 body {
-    border: 2px solid black;
-}
-
-h1{
-    color: green;
+    text-align: center;
+    margin-top: 150px;
+    font-family: 'Righteous', cursive;
+    background: radial-gradient(#FFE32C, #52ACFF);
+    background-attachment: fixed;
+    color: black;
 }
 
 h2{
-    color: green;
+    color: rgb(189, 188, 188);
+    -webkit-text-fill-color: rgb(189, 188, 188);
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: black;
+}
+
+ul {
+    width: 800px;
+    margin: 0 auto;
+    list-style: none;
+    display: inline-flex;
+    justify-content: space-evenly;
+}
+
+li {
+    width: 150px;
+    border: 1px solid black;
+}
+
+input {
+    border-radius: 2px;
 }
