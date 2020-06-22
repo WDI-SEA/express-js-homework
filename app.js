@@ -22,7 +22,7 @@ app.get("/results", (req, res) => {
     // the name of the form text box would go on the end of the query because it tells it that 
     weather.find({search: req.query.zipcode, degreeType: 'F'}, function(err, result) {
         if(err){
-            console.log('You pooped the bed :/')
+            console.log('You pooped the bed :/ 💩💩💩💩💩💩💩💩💩')
             console.log(err);
         }
         // console.log(JSON.stringify(result, null, 2));
