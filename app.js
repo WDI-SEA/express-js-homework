@@ -39,12 +39,12 @@ app.get('/weather', (req, res) => {
 
 app.get('/weatherRandom', (req, res) => {
   // console.log(zipObject.zip)
-  weather.find({ search: zipObject.zip, degreeType: 'F' }
+  weather.find({ search: zipcodes.random().zip, degreeType: 'F' }
   , function (err, result) {
     if (err) { console.log(err) }
     // console.log({currentWeather:result})
-    
-    res.render('weatherRandom.ejs', ({currentWeather:result}))
+    // console.log(result[0])
+    res.render('weather.ejs', ({currentWeather:result[0]}))
   })
 })
 
