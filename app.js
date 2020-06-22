@@ -17,7 +17,6 @@ app.get("/weather", (req, res) => {
         if(err) {
             res.render("weather.ejs", {message : `ERROR: ${err}`});
         } else {
-            console.log("RESULT HERE",result)
             if(result[0]){
                 let output = `Weather for ${result[0].location.name}: ${result[0].current.skytext}, ${result[0].current.temperature}°F`;
 

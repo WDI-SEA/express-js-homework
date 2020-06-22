@@ -19,4 +19,32 @@ form {
 
 input {
     margin-top:.5em;
+    border: none;
+    border-radius: 2px;
+    height:25px;
+    outline:none;
+}
+
+#button {
+    font-size:25px;
+    background:transparent;
+    color:white;
+    cursor:pointer;
+    height:35px;
+    border:3px solid white;
+    border-radius:5px;
+}
+
+#back{
+    text-decoration:none;
+    background:transparent;
+    border:3px solid white;
+    border-radius:5px;
+    font-size:25px;
+    color:white;
+}
+
+a{
+    text-decoration:none;
+    color:white;
 }
