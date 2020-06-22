@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 app.get('/weather', (req, res) => {
     weather.find({search: req.query.zipcode, degreeType: 'F'}, function(err, result) {
         if(err) console.log(err);
-        if (result[0].current.temperature >= 72) {
+        if (result[0].current.temperature >= 70) {
             res.render('warm-weather.ejs', {
                 location: result[0].location.name,
                 currentTemp: result[0].current.temperature,

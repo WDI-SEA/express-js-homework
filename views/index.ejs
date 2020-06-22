@@ -11,8 +11,11 @@
     </h2>
     <p>Enter a zip code to get the current weather.</p>
     <form action="/weather" method="get">
-        <input type="text" name="zipcode">
+        <input type="text" name="zipcode" required>
         <input type="submit" value="Get Weather">
+    </form>
+    <form action="/weather" method="get">
+        <input type="submit" name="zipcode" value=<%= Math.floor(Math.random()*90000) + 10000; %>>
     </form>
 </body>
 </html>

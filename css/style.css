@@ -1,6 +1,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
+    background-image: url(/img/bg.jpg);
+    background-size: cover;
 }
 
 a {
@@ -25,4 +27,5 @@ main {
 
 input {
     font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
 }
