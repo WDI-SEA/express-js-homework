@@ -1,10 +1,12 @@
 //import express & ejs layouts// 
 let express = require('express')
 let app = express();
+app.use('/static', express.static('static'));
+app.set('views', __dirname + '/views')
 let ejsLayouts = require('express-ejs-layouts')
-
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
+
 
 //render the viewpages//
 app.get('/', (req, res) => {

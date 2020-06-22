@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+  <link href="/static/style.css" rel="stylesheet" type="text/CSS">
   <title>Weather Results</title>
 </head>
+    <a href="/">Homepage</a></li>
 <body>
   <h1>Here is your weather forecast for <%= query %>:</h1>
   <h2>Location: <%= result.location.name %></h2>
   <img src= "<%= result.current.imageUrl %> " >
-  <h3>Temperature: <%= result.current.temperature %> </h3>
+  <h3>Temperature: <%= result.current.temperature %> degrees </h3>
   <h3>Looks Like: <%= result.current.skytext %></h3>
-  <h3>Feels Like: <%= result.current.feelslike %></h3>
+  <h3>Feels Like: <%= result.current.feelslike %> degrees</h3>
   <h3>Wind: <%= result.current.windspeed %></h3> 
 </body>
+<script src="app.js"></script>
 </html>
