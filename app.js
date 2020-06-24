@@ -8,13 +8,15 @@ app.use(express.static(__dirname + '/'));
 
 app.set('view engine', 'ejs');
 
-//Create 
+
 app.get('/', (req, res) => {
   res.render('home.ejs');
   })
 
-app.get('/weather/:zipcode', (req, res) => {
-  res.send(`Results for $(req.params.zipcode)`)
+app.get('/results', (req, res) => {
+  weather.find({search: req.query.zipcode, degreeType: 'F'}, function(error,result) {
+    res.render('results', {weather: result[0]});
+  });
 })
 
 
