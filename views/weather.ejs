@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
-    <link href="/style.css" rel="stylesheet" type="text/css">
-    <title>Find your Local Weather</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://bootswatch.com/4/darkly/bootstrap.css" rel="stylesheet" type="text/css">
+    <title>Weather for <%= result.location.name %></title>
 </head>
 <body>
-        <h1>Find your local weather by ZIP code below:</h1>
-        <form action="/weather" method="GET">
-            <input type="text" name="zip">
-            <input type="submit" name="user-submitted">
-        </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="jumbotron my-5">
+                    <p class="text-muted">Current weather in</p>
+                    <h2 class="display-3"><span class="glyphicon glyphicon-globe mr-4"></span> <%= result.location.name %> </h2>
+                    <hr class="my-4" />
+                    <p class="lead"><%= result.current.temperature %>°F and <%= result.current.skytext %> with a humidity level of <%= result.current.humidity %>% right now.</p>
+                    <p class="lead">Tomorrow expect it to be <%= result.forecast[0].skytextday %> with a high of <%= result.forecast[0].high %>°F.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+
+

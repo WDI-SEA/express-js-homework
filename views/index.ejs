@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk">
+    <link href="https://bootswatch.com/4/darkly/bootstrap.css" rel="stylesheet" type="text/css">
+    <title>Search for Local Weather</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="jumbotron mt-5">
+                    <h3 class="text-muted"><strong>Find your local weather below:</strong></h3>
+                    <br />
+                    <div class="form-group mb-0 pb-0">
+                        <form action="/weather" method="GET">
+                                <input type="text" class="form-control" placeholder="...Type a location here like Los Angeles, CA" name="city">
+                                <br />
+                                <input type="submit" class="btn btn-primary btn-lg">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
